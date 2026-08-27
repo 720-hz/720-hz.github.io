@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ziad</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --main: #2B2E6B;
+    --text: #14161A;
+    --bg: #FAFAF7;
+    --accent: #35D0A0;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: var(--bg);
+    color: var(--text);
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', -apple-system, sans-serif;
+  }
+  main {
+    text-align: center;
+    padding: 24px;
+  }
+  h1 {
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    color: var(--main);
+    margin: 0 0 12px 0;
+    letter-spacing: -0.01em;
+  }
+  .accent {
+    color: var(--accent);
+  }
+  p {
+    font-size: 1.05rem;
+    color: #666666;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <h1>Ziad<span class="accent">.</span></h1>
+    <p>Machine learning engineer. Portfolio building now.</p>
+  </main>
+</body>
+</html>
