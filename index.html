@@ -3,57 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ziad</title>
+<title>Ziad Khaled — Machine Learning Engineer</title>
+<meta name="description" content="Ziad Khaled — Computer Engineering undergraduate and AI Engineer aspirant. Production ML + agentic systems, end-to-end.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B2E6B'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23FAFAF7' text-anchor='middle'%3Ez%3C/text%3E%3Ccircle cx='24.5' cy='9' r='2.3' fill='%2335D0A0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --main: #2B2E6B;
-    --text: #14161A;
-    --bg: #FAFAF7;
-    --accent: #35D0A0;
+  :root{
+    --main:#2B2E6B;
+    --text:#14161A;
+    --bg:#FAFAF7;
+    --accent:#35D0A0;
+    --card:#FFFFFF;
+    --border:#E7E5DE;
+    --muted:#5B5D63;
   }
-  * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background: var(--bg);
-    color: var(--text);
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;
   }
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', -apple-system, sans-serif;
+  h1,h2,h3,.brand{font-family:'Space Grotesk',system-ui,sans-serif;}
+  a{color:var(--main);}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px;}
+
+  header{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 0;border-bottom:1px solid var(--border);
   }
-  main {
-    text-align: center;
-    padding: 24px;
+  header .wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-weight:700;font-size:18px;color:var(--text);text-decoration:none;
   }
-  h1 {
-    font-family: 'Space Grotesk', -apple-system, sans-serif;
-    font-weight: 700;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    color: var(--main);
-    margin: 0 0 12px 0;
-    letter-spacing: -0.01em;
+  .brand .mark{
+    width:28px;height:28px;border-radius:6px;background:var(--main);
+    color:var(--bg);display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:700;position:relative;
   }
-  .accent {
-    color: var(--accent);
+  .brand .mark::after{
+    content:"";position:absolute;top:-3px;right:-3px;width:6px;height:6px;
+    border-radius:50%;background:var(--accent);
   }
-  p {
-    font-size: 1.05rem;
-    color: #666666;
-    margin: 0;
+  nav a{
+    margin-left:22px;color:var(--text);text-decoration:none;font-size:14px;font-weight:500;
+  }
+  nav a:hover{color:var(--main);}
+
+  .hero{padding:64px 0 48px;}
+  .eyebrow{
+    display:inline-block;font-size:13px;font-weight:600;color:var(--main);
+    letter-spacing:.02em;margin-bottom:14px;
+  }
+  .hero h1{font-size:38px;line-height:1.2;margin:0 0 14px;}
+  .hero .tag{font-size:17px;color:var(--muted);margin:0 0 22px;max-width:620px;}
+  .claim{
+    font-size:19px;font-weight:600;margin:0 0 22px;color:var(--text);
+  }
+  .claim span{color:var(--main);}
+  .bio{max-width:640px;color:var(--text);font-size:15.5px;margin-bottom:28px;}
+
+  .links{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:8px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border-radius:8px;font-size:14px;font-weight:600;
+    text-decoration:none;border:1px solid var(--border);color:var(--text);
+    background:var(--card);transition:transform .12s ease, border-color .12s ease;
+  }
+  .btn:hover{border-color:var(--main);transform:translateY(-1px);}
+  .btn.primary{background:var(--main);color:var(--bg);border-color:var(--main);}
+  .btn.primary:hover{opacity:.92;}
+  .btn.accent{border-color:var(--accent);}
+  .btn.accent::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);}
+
+  section{padding:44px 0;border-top:1px solid var(--border);}
+  section h2{font-size:22px;margin:0 0 6px;}
+  .section-note{color:var(--muted);font-size:14.5px;margin:0 0 26px;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+  .card{
+    background:var(--card);border:1px solid var(--border);border-radius:10px;
+    padding:20px;
+  }
+  .card h3{margin:0 0 4px;font-size:17px;}
+  .card .tagline{color:var(--main);font-size:13px;font-weight:600;margin:0 0 10px;}
+  .card p{margin:0;font-size:14.5px;color:var(--text);}
+  .card .result{margin-top:10px;font-size:13.5px;color:var(--muted);}
+
+  .future{
+    background:var(--card);border:1px dashed var(--border);border-radius:10px;
+    padding:22px;font-size:14.5px;color:var(--muted);
+  }
+  .future strong{color:var(--text);}
+
+  .contact{
+    background:var(--main);color:var(--bg);border-radius:12px;padding:32px;
+    text-align:center;
+  }
+  .contact h2{color:var(--bg);}
+  .contact p{color:#DADCF2;max-width:520px;margin:8px auto 20px;font-size:15px;}
+  .contact .btn.accent{background:var(--accent);color:var(--text);border-color:var(--accent);}
+  .contact .btn.accent::before{display:none;}
+
+  footer{
+    padding:28px 0 44px;color:var(--muted);font-size:13px;
+    display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;
   }
 </style>
 </head>
 <body>
-  <main>
-    <h1>Ziad<span class="accent">.</span></h1>
-    <p>Machine learning engineer. Portfolio building now.</p>
-  </main>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <span class="mark">z</span> Ziad Khaled
+    </a>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero" id="top" style="border-top:none;">
+    <div class="eyebrow">Computer Engineering Undergraduate · AI Engineer Aspirant</div>
+    <h1>Ziad Khaled</h1>
+    <p class="claim">“Production ML + agentic systems, <span>end-to-end.</span>”</p>
+    <p class="bio">I'm finishing my B.Sc. in Computer Engineering at the British University in Egypt (October 2026). Right now I'm a Machine Learning Engineering Intern at FlyRank, building intelligence layers on top of messy search and analytics data. I'd rather build the thing than just read about it — this site is where that shows up: a car-damage app that ships real reports, my own JARVIS-style assistant, a gym tracker I actually use, and a brain-signal classifier I benchmarked properly.</p>
+    <div class="links">
+      <a class="btn primary" href="https://www.linkedin.com/in/ziad-khaled-b3a187253" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/720-hz" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="./Ziad_Khaled_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      <a class="btn accent" href="mailto:ziadkhaledshatah@gmail.com?subject=Let%27s%20talk" target="_blank" rel="noopener">Book time — email me</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <p class="section-note">Four real builds behind the claim above — proof, not a pitch.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>FixZone</h3>
+        <p class="tagline">Vehicle damage detection, shipped inside a real Flutter app</p>
+        <p>Bounding boxes kept missing small dents and scratches, so I moved from YOLOv8 to YOLOv11m-seg for real outlines, retrained it around severity levels with EGP-based repair estimates, and wrapped it in an app with an offline chatbot and a PDF report generator.</p>
+        <p class="result">Result: photo in → damage report, shop suggestions, and a PDF out, end to end.</p>
+      </div>
+      <div class="card">
+        <h3>JARVIS</h3>
+        <p class="tagline">A multi-LLM agent platform that controls my computer and browses to learn</p>
+        <p>Built a multi-LLM router plus computer-control and web-browsing tools. Caught it once reporting "done" on a task with no file ever created — I'm actively building an output-verification layer so it can't claim success it didn't earn.</p>
+        <p class="result">Status: real, unsolved problem I'm working through — not a finished demo.</p>
+      </div>
+      <div class="card">
+        <h3>FlowLifeOS</h3>
+        <p class="tagline">A gym-tracking app, rebuilt native so it works with no internet</p>
+        <p>Started as a WebView wrapper, which meant it needed a connection to work — exactly when a gym app shouldn't fail. Rebuilt fully native in Kotlin and Jetpack Compose so it works offline, every time.</p>
+        <p class="result">Result: running on my own phone right now — I use it.</p>
+      </div>
+      <div class="card">
+        <h3>BCI / EEG Motor-Imagery Classifier</h3>
+        <p class="tagline">Graduation research project, not a shipped product</p>
+        <p>Built a testing pipeline on the Competition IV EEG benchmark and compared CSP-LDA against a Riemannian-manifold approach for classifying left-hand vs. right-hand motor imagery straight from brain signal.</p>
+        <p class="result">Result: Riemannian manifold reached 97.92% vs. 86.11% for CSP-LDA — a strong result on a clean benchmark, not a claim about messy real-world signal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>What's coming next</h2>
+    <p class="section-note">This site updates as the work does.</p>
+    <div class="future">
+      <strong>Future posts &amp; capstone work.</strong> I'm partway through an 8-week AI Fluency track at FlyRank — this space is where the write-ups, the agents I build, and the final capstone project land as they're finished, rather than being announced after the fact. A FlyRank completion badge goes here too once the capstone is approved.
+    </div>
+  </section>
+
+  <section id="contact" style="border-top:none;">
+    <div class="contact">
+      <h2>Want to talk about a machine learning role?</h2>
+      <p>Email me — <strong>ziadkhaledshatah@gmail.com</strong>. I read every one myself.</p>
+      <a class="btn accent" href="mailto:ziadkhaledshatah@gmail.com?subject=Let%27s%20talk" target="_blank" rel="noopener">Email me</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;width:100%;">
+    <span>© 2026 Ziad Khaled · Cairo, Egypt</span>
+    <span>Built by hand, hosted on GitHub Pages.</span>
+  </div>
+</footer>
+
 </body>
 </html>
