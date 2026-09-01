@@ -111,6 +111,29 @@
   .contact .btn.accent{background:var(--accent);color:var(--text);border-color:var(--accent);}
   .contact .btn.accent::before{display:none;}
 
+  .contact-form{
+    max-width:420px;margin:0 auto;text-align:left;display:flex;flex-direction:column;gap:10px;
+  }
+  .contact-form input,
+  .contact-form textarea{
+    width:100%;padding:11px 13px;border-radius:8px;border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.08);color:var(--bg);font-family:'Inter',system-ui,sans-serif;
+    font-size:14.5px;resize:vertical;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder{color:#C7C9EA;}
+  .contact-form input:focus,
+  .contact-form textarea:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .contact-form button{
+    align-self:flex-start;cursor:pointer;font-family:inherit;
+  }
+  .contact-form button:disabled{opacity:.6;cursor:default;}
+  .contact-status{min-height:18px;font-size:13.5px;margin:2px 0 0;}
+  .contact-status.ok{color:var(--accent);font-weight:600;}
+  .contact-status.err{color:#FFC9C9;font-weight:600;}
+  .contact-fallback{font-size:13.5px;color:#C7C9EA !important;margin-top:18px !important;}
+  .contact-fallback a{color:var(--bg) !important;text-decoration:underline;}
+
   footer{
     padding:28px 0 44px;color:var(--muted);font-size:13px;
     display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;
@@ -189,8 +212,19 @@
   <section id="contact" style="border-top:none;">
     <div class="contact">
       <h2>Want to talk about a machine learning role?</h2>
-      <p>Email me — <strong>ziadkhaledshatah@gmail.com</strong>. I read every one myself.</p>
-      <a class="btn accent" href="mailto:ziadkhaledshatah@gmail.com?subject=Let%27s%20talk" target="_blank" rel="noopener">Email me</a>
+      <p>Send a message straight to my inbox — I read every one myself, no email client required.</p>
+
+      <form id="contact-form" class="contact-form">
+        <input type="hidden" name="_subject" value="New message from 720-hz.github.io">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="4" placeholder="What's on your mind?" required></textarea>
+        <button type="submit" class="btn accent" id="contact-submit">Send message</button>
+        <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="contact-fallback">Prefer email directly? <a href="mailto:ziadkhaledshatah@gmail.com?subject=Let%27s%20talk">ziadkhaledshatah@gmail.com</a></p>
     </div>
   </section>
 
@@ -202,6 +236,57 @@
     <span>Built by hand, hosted on GitHub Pages.</span>
   </div>
 </footer>
+
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('contact-status');
+  var submitBtn = document.getElementById('contact-submit');
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/ziadkhaledshatah@gmail.com';
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = 'contact-status';
+
+    var payload = {
+      name: form.name.value,
+      email: form.email.value,
+      message: form.message.value,
+      _subject: form._subject.value,
+      _template: form._template.value
+    };
+
+    fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (res) {
+        return res.json().then(function (data) { return { ok: res.ok, data: data }; });
+      })
+      .then(function (result) {
+        if (result.ok) {
+          status.textContent = "Sent — thanks! I'll reply from ziadkhaledshatah@gmail.com.";
+          status.classList.add('ok');
+          form.reset();
+        } else {
+          throw new Error((result.data && result.data.message) || 'Submission failed');
+        }
+      })
+      .catch(function (err) {
+        status.textContent = 'Something went wrong (' + err.message + '). Email me directly instead.';
+        status.classList.add('err');
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send message';
+      });
+  });
+})();
+</script>
 
 </body>
 </html>
