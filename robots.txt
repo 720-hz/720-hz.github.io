@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://720-hz.github.io/sitemap.xml
+
