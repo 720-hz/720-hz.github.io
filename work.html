@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Work — Ziad Khaled</title>
 <meta name="description" content="Selected work by Ziad Khaled: FixZone, JARVIS, FlowLifeOS, and a BCI/EEG motor-imagery classifier.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B2E6B'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23FAFAF7' text-anchor='middle'%3Ez%3C/text%3E%3Ccircle cx='24.5' cy='9' r='2.3' fill='%2335D0A0'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F2A93B'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%230B0D12' text-anchor='middle'%3Ez%3C/text%3E%3Ccircle cx='24.5' cy='9' r='2.3' fill='%2346E3B4'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -16,7 +16,7 @@
 <header>
   <div class="wrap">
     <a class="brand" href="index.html">
-      <span class="mark">z</span> Ziad Khaled
+      <span class="mark mono">z</span> Ziad Khaled
     </a>
     <nav>
       <a href="work.html" class="active">Work</a>
@@ -29,35 +29,46 @@
 <div class="wrap">
 
   <section class="page-hero reveal" style="border-top:none;">
+    <div class="prompt">ls ./selected-work --count=4</div>
     <h1>Selected work</h1>
     <p class="section-note">Four real builds behind the claim on the home page — proof, not a pitch.</p>
   </section>
 
   <section style="border-top:none;padding-top:8px;">
-    <div class="grid">
-      <div class="card reveal reveal-1">
+    <div class="row reveal reveal-1">
+      <div class="idx mono">01</div>
+      <div class="row-body">
         <h3>FixZone</h3>
-        <p class="tagline">Vehicle damage detection, shipped inside a real Flutter app</p>
+        <p class="tagline">// vehicle damage detection, shipped inside a real Flutter app</p>
         <p>Bounding boxes kept missing small dents and scratches, so I moved from YOLOv8 to YOLOv11m-seg for real outlines, retrained it around severity levels with EGP-based repair estimates, and wrapped it in an app with an offline chatbot and a PDF report generator.</p>
-        <p class="result">Result: photo in → damage report, shop suggestions, and a PDF out, end to end.</p>
+        <p class="result">→ photo in, damage report, shop suggestions, and a PDF out, end to end.</p>
       </div>
-      <div class="card reveal reveal-2">
+    </div>
+    <div class="row reveal reveal-2">
+      <div class="idx mono">02</div>
+      <div class="row-body">
         <h3>JARVIS</h3>
-        <p class="tagline">A multi-LLM agent platform that controls my computer and browses to learn</p>
+        <p class="tagline">// a multi-LLM agent platform that controls my computer and browses to learn</p>
         <p>Built a multi-LLM router plus computer-control and web-browsing tools. Caught it once reporting "done" on a task with no file ever created — I'm actively building an output-verification layer so it can't claim success it didn't earn.</p>
-        <p class="result">Status: real, unsolved problem I'm working through — not a finished demo.</p>
+        <p class="result">→ real, unsolved problem I'm working through — not a finished demo.</p>
       </div>
-      <div class="card reveal reveal-3">
+    </div>
+    <div class="row reveal reveal-3">
+      <div class="idx mono">03</div>
+      <div class="row-body">
         <h3>FlowLifeOS</h3>
-        <p class="tagline">A gym-tracking app, rebuilt native so it works with no internet</p>
+        <p class="tagline">// a gym-tracking app, rebuilt native so it works with no internet</p>
         <p>Started as a WebView wrapper, which meant it needed a connection to work — exactly when a gym app shouldn't fail. Rebuilt fully native in Kotlin and Jetpack Compose so it works offline, every time.</p>
-        <p class="result">Result: running on my own phone right now — I use it.</p>
+        <p class="result">→ running on my own phone right now — I use it.</p>
       </div>
-      <div class="card reveal reveal-4">
+    </div>
+    <div class="row reveal reveal-4">
+      <div class="idx mono">04</div>
+      <div class="row-body">
         <h3>BCI / EEG Motor-Imagery Classifier</h3>
-        <p class="tagline">Graduation research project, not a shipped product</p>
+        <p class="tagline">// graduation research project, not a shipped product</p>
         <p>Built a testing pipeline on the Competition IV EEG benchmark and compared CSP-LDA against a Riemannian-manifold approach for classifying left-hand vs. right-hand motor imagery straight from brain signal.</p>
-        <p class="result">Result: Riemannian manifold reached 97.92% vs. 86.11% for CSP-LDA — a strong result on a clean benchmark, not a claim about messy real-world signal.</p>
+        <p class="result">→ Riemannian manifold reached 97.92% vs. 86.11% for CSP-LDA — a strong result on a clean benchmark, not a claim about messy real-world signal.</p>
       </div>
     </div>
   </section>
