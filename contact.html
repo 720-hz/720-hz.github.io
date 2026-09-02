@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Ziad Khaled</title>
+<meta name="description" content="Get in touch with Ziad Khaled about a machine learning role.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B2E6B'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23FAFAF7' text-anchor='middle'%3Ez%3C/text%3E%3Ccircle cx='24.5' cy='9' r='2.3' fill='%2335D0A0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">z</span> Ziad Khaled
+    </a>
+    <nav>
+      <a href="work.html">Work</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="reveal" style="border-top:none;padding-top:52px;">
+    <div class="contact">
+      <h1>Want to talk about a machine learning role?</h1>
+      <p>Send a message straight to my inbox — I read every one myself, no email client required.</p>
+
+      <form id="contact-form" class="contact-form">
+        <input type="hidden" name="_subject" value="New message from 720-hz.github.io">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Your email" required>
+        <textarea name="message" rows="4" placeholder="What's on your mind?" required></textarea>
+        <button type="submit" class="btn accent" id="contact-submit">Send message</button>
+        <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="contact-fallback">Prefer email directly? <a href="mailto:ziadkhaledshatah@gmail.com?subject=Let%27s%20talk">ziadkhaledshatah@gmail.com</a></p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;width:100%;">
+    <span>© 2026 Ziad Khaled · Cairo, Egypt</span>
+    <span>Built by hand, hosted on GitHub Pages.</span>
+  </div>
+</footer>
+<script src="motion.js"></script>
+<script src="contact.js"></script>
+</body>
+</html>

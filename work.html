@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ziad Khaled — Machine Learning Engineer</title>
-<meta name="description" content="Ziad Khaled — Computer Engineering undergraduate and AI Engineer aspirant. Production ML + agentic systems, end-to-end.">
+<title>Work — Ziad Khaled</title>
+<meta name="description" content="Selected work by Ziad Khaled: FixZone, JARVIS, FlowLifeOS, and a BCI/EEG motor-imagery classifier.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232B2E6B'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='19' font-weight='700' fill='%23FAFAF7' text-anchor='middle'%3Ez%3C/text%3E%3Ccircle cx='24.5' cy='9' r='2.3' fill='%2335D0A0'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
       <span class="mark">z</span> Ziad Khaled
     </a>
     <nav>
-      <a href="work.html">Work</a>
+      <a href="work.html" class="active">Work</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -28,22 +28,12 @@
 
 <div class="wrap">
 
-  <section class="hero reveal" id="top" style="border-top:none;">
-    <div class="eyebrow">Computer Engineering Undergraduate · AI Engineer Aspirant</div>
-    <h1>Ziad Khaled</h1>
-    <p class="claim">“Production ML + agentic systems, <span>end-to-end.</span>”</p>
-    <p class="bio">I'm finishing my B.Sc. in Computer Engineering at the British University in Egypt (October 2026). Right now I'm a Machine Learning Engineering Intern at FlyRank, building intelligence layers on top of messy search and analytics data. I'd rather build the thing than just read about it — this site is where that shows up: a car-damage app that ships real reports, my own JARVIS-style assistant, a gym tracker I actually use, and a brain-signal classifier I benchmarked properly.</p>
-    <div class="links">
-      <a class="btn primary" href="https://www.linkedin.com/in/ziad-khaled-b3a187253" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn" href="https://github.com/720-hz" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="./Ziad_Khaled_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-      <a class="btn accent" href="mailto:ziadkhaledshatah@gmail.com?subject=Let%27s%20talk" target="_blank" rel="noopener">Book time — email me</a>
-    </div>
+  <section class="page-hero reveal" style="border-top:none;">
+    <h1>Selected work</h1>
+    <p class="section-note">Four real builds behind the claim on the home page — proof, not a pitch.</p>
   </section>
 
-  <section id="work-preview">
-    <h2 class="reveal">Selected work</h2>
-    <p class="section-note reveal">Four real builds behind the claim above — proof, not a pitch.</p>
+  <section style="border-top:none;padding-top:8px;">
     <div class="grid">
       <div class="card reveal reveal-1">
         <h3>FixZone</h3>
@@ -57,8 +47,27 @@
         <p>Built a multi-LLM router plus computer-control and web-browsing tools. Caught it once reporting "done" on a task with no file ever created — I'm actively building an output-verification layer so it can't claim success it didn't earn.</p>
         <p class="result">Status: real, unsolved problem I'm working through — not a finished demo.</p>
       </div>
+      <div class="card reveal reveal-3">
+        <h3>FlowLifeOS</h3>
+        <p class="tagline">A gym-tracking app, rebuilt native so it works with no internet</p>
+        <p>Started as a WebView wrapper, which meant it needed a connection to work — exactly when a gym app shouldn't fail. Rebuilt fully native in Kotlin and Jetpack Compose so it works offline, every time.</p>
+        <p class="result">Result: running on my own phone right now — I use it.</p>
+      </div>
+      <div class="card reveal reveal-4">
+        <h3>BCI / EEG Motor-Imagery Classifier</h3>
+        <p class="tagline">Graduation research project, not a shipped product</p>
+        <p>Built a testing pipeline on the Competition IV EEG benchmark and compared CSP-LDA against a Riemannian-manifold approach for classifying left-hand vs. right-hand motor imagery straight from brain signal.</p>
+        <p class="result">Result: Riemannian manifold reached 97.92% vs. 86.11% for CSP-LDA — a strong result on a clean benchmark, not a claim about messy real-world signal.</p>
+      </div>
     </div>
-    <p class="reveal" style="margin-top:18px;"><a class="btn" href="work.html">See all 4 builds →</a></p>
+  </section>
+
+  <section class="reveal">
+    <h2>What's coming next</h2>
+    <p class="section-note">This site updates as the work does.</p>
+    <div class="future">
+      <strong>Future posts &amp; capstone work.</strong> I'm partway through an 8-week AI Fluency track at FlyRank — this space is where the write-ups, the agents I build, and the final capstone project land as they're finished, rather than being announced after the fact. A FlyRank completion badge goes here too once the capstone is approved.
+    </div>
   </section>
 
 <section class="cta-banner reveal">
