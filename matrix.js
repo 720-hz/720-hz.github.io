@@ -14,6 +14,33 @@
   var drops = [];
   var dpr = window.devicePixelRatio || 1;
 
+  var mouseX = -9999;
+  var mouseY = -9999;
+  var mouseRadius = 130;
+
+  function updatePointer(clientX, clientY) {
+    var rect = hero.getBoundingClientRect();
+    mouseX = clientX - rect.left;
+    mouseY = clientY - rect.top;
+  }
+
+  hero.addEventListener('mousemove', function (e) {
+    updatePointer(e.clientX, e.clientY);
+  });
+  hero.addEventListener('mouseleave', function () {
+    mouseX = -9999;
+    mouseY = -9999;
+  });
+  hero.addEventListener('touchmove', function (e) {
+    if (e.touches && e.touches[0]) {
+      updatePointer(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+  hero.addEventListener('touchend', function () {
+    mouseX = -9999;
+    mouseY = -9999;
+  });
+
   function resize() {
     var rect = hero.getBoundingClientRect();
     canvas.width = Math.floor(rect.width * dpr);
@@ -37,8 +64,23 @@
       var char = Math.random() > 0.5 ? '1' : '0';
       var x = i * fontSize;
       var y = drops[i] * fontSize;
-      var bright = Math.random() > 0.94;
-      ctx.fillStyle = bright ? 'rgba(199,255,222,0.9)' : 'rgba(0,255,102,0.55)';
+
+      var dx = x - mouseX;
+      var dy = y - mouseY;
+      var dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < mouseRadius) {
+        var glow = 1 - dist / mouseRadius;
+        var g = Math.round(180 + 75 * glow);
+        var b = Math.round(140 + 115 * glow);
+        var a = 0.55 + 0.4 * glow;
+        ctx.fillStyle = 'rgba(' + g + ',255,' + b + ',' + a + ')';
+        drops[i] += glow * 0.6;
+      } else {
+        var bright = Math.random() > 0.94;
+        ctx.fillStyle = bright ? 'rgba(199,255,222,0.9)' : 'rgba(0,255,102,0.55)';
+      }
+
       ctx.fillText(char, x, y);
       if (y > rect.height && Math.random() > 0.975) {
         drops[i] = 0;
